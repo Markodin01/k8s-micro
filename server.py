@@ -49,7 +49,7 @@ def validate():
 
 	if not encoded_jwt:
 		return "missing token", 401
-	
+	# this is a hack to remove the "Bearer " prefix
 	encoded_jwt = encoded_jwt.split(" ")[1]
 	try:
 		decoded = jwt.decode(encoded_jwt, os.environ.get("JWT_SECRET"))
