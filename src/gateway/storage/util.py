@@ -21,3 +21,7 @@ def upload(f, fs, channel, access):
                 pika.spec.PERSISTENT_DELIVERY_MODE)
         )
 
+    except:
+        fs.delete(fid)
+        return "failed to upload", 500
+
