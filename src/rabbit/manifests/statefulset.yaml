@@ -26,10 +26,10 @@ spec:
             - configMapRef:
                 name: rabbitmq-configmap
             - secretRef:
-                name: rabbitmq-secrets
+                name: rabbitmq-secret
           volumeMounts:
-            - name: rabbitmq-volume
-              mountPath: /var/lib/rabbitmq
+            - mountPath: "/var/lib/rabbitmq"
+              name: rabbitmq-volume
       volumes:
         - name: rabbitmq-volume
           persistentVolumeClaim:

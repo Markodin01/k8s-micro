@@ -4,13 +4,13 @@ metadata:
   name: rabbitmq-ingress
 spec:
   rules:
-  - host: rabbitmq.com
-    http:
-      paths:
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: rabbitmq
-              port:
-                number: 15672
+    - host: rabbitmq-manager.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rabbitmq
+                port:
+                  number: 15672
