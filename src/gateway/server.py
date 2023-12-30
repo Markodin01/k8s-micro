@@ -72,6 +72,13 @@ def download():
 
         if not fid_string:
             return "no fid provided", 400
+        
+        try:
+            out = fs_mp3s.get(ObjectId(fid_string)).read()
+            return send_file(out, download_name=fid_string + ".mp3")
+        
+        except Exception as e:
+            return str(e), 500
 
 
     return "not authorized", 401
